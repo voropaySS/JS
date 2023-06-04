@@ -1,4 +1,7 @@
-import React from "react";
+
+import {  PDFViewer ,PDFDownloadLink ,Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import './PDF.css'
+
 
 export function ShowApplication() {
     return(
