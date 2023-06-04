@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom'
-import {  PDFViewer ,PDFDownloadLink ,Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
-import './PDF.css'
-import {CreatePDF} from './CreatePDF'
-
+import PDFViewer from './pdf_lib'
+import {CreatePDF} from "./CreatePDF";
 
 export function Creature() {
     return (
@@ -11,6 +9,5 @@ export function Creature() {
             <h1>Creature page</h1>
             <CreatePDF/>
         </div>
-
     )
 }
