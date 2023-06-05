@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./sign.module.scss";
 import withLayout from "../../hocs/with-layout";
 
-const SignApplication = () => {
+export function SignApplication() {
 
     const testData = [
         {
@@ -46,12 +46,12 @@ const SignApplication = () => {
     const [inputValue, setInputValue] = React.useState('');
 
     const filteredData = testData.filter((value) => {
-        return value.name.toLowerCase().includes(inputValue);
+        return value.name.toLowerCase().includes(inputValue.toLowerCase());
     })
 
-    const handleSubmit = (event) => {
-        setInputValue('');
-    }
+    // const handleSubmit = (event) => {
+    //     setInputValue('');
+    // }
 
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
@@ -59,17 +59,13 @@ const SignApplication = () => {
 
     return (
         <div>
-            <Link to="/signing" activeStyle>
-                Подписать
-            </Link>
-            <h1 className={styles.title}>Список заявок на подписание</h1>
             <div className={styles.search}>
                 <input
                     type="text"
                     placeholder="Введите название документа"
                     value={inputValue}
                     onChange={handleInputChange} />
-                <button onClick={handleSubmit}>Поиск</button>
+                {/* <button onClick={handleSubmit}>Поиск</button> */}
             </div>
             <div className={styles.table}>
                 <table>
