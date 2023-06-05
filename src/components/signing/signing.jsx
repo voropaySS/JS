@@ -1,7 +1,9 @@
 import React from "react";
 
-export function Signing() {
+const Signing = () => {
     return(
         <h1>Подписание заявок</h1>
     )
 }
+
+export default Signing;
