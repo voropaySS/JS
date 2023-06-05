@@ -31,13 +31,14 @@
 
 .table {
     table {
-        width: 1100px;
+        width: 1200px;
         margin: 0 auto;
         font-size: 20px;
         border: 1px solid rgba(0, 71, 171, 0.3);
         border-radius: 20px;
         padding: 10px;
         border-spacing: 10px;
+        background-color: aqua;
         thead {
             tr {
                 border-bottom: 1px solid rgba(0, 71, 171, 0.7);

@@ -6,30 +6,40 @@ export function SignApplication() {
 
     const testData = [
         {
-            name: 'lala',
-            date: '21.09.2023',
-            type: 'application'
+            Номер: '00893',
+            Имя: 'Сухарев М.К',
+            name: 'Договор об увеличении заработной платы',
+            Дата: '21.09.2023',
+            Тип: 'application'
         },
         {
-            name: '12jhwe',
-            date: '21.09.2023',
-            type: 'application'
+            Номер: '00893',
+            Имя: 'Сухарев М.К',
+            name: 'Заявление об увольнении',
+            Дата: '21.09.2023',
+            Тип: 'application'
         },
         {
-            name: 'asf',
-            date: '21.09.2023',
-            type: 'application'
+            Номер: '00893',
+            Имя: 'Сухарев М.К',
+            name: 'Заявление на перевод на другую должность',
+            Дата: '21.09.2023',
+            Тип: 'application'
         },
         {
-            name: 'abcd',
-            date: '21.09.2023',
-            type: 'application'
+            Номер: '00893',
+            Имя: 'Сухарев М.К',
+            name: 'Заявление на уменьшение рабочих часов',
+            Дата: '21.09.2023',
+            Тип: 'application'
         },
         {
-            name: 'Aniuer',
-            date: '21.09.2023',
-            type: 'application'
-        }
+            Номер: '00893',
+            Имя: 'Сухарев М.К',
+            name: 'Договор о переначначении должности',
+            Дата: '21.09.2023',
+            Тип: 'application'
+        },
     ]
 
     const [inputValue, setInputValue] = React.useState('');
@@ -64,9 +74,12 @@ export function SignApplication() {
                 <table>
                     <thead>
                         <tr>
-                            <th>name</th>
-                            <th>date</th>
-                            <th>type</th>
+                            <th>Номер заявки</th>
+                            <th>Имя отправителя</th>
+                            <th>Название</th>
+                            <th>Дата</th>
+                            <th>Тип заявки</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -75,6 +88,9 @@ export function SignApplication() {
                                 {Object.values(row).map((value, index) => (
                                     <td key={index}>{value}</td>
                                 ))}
+                                <td>
+                                    <Link to='/signing'>Подписать</Link>
+                                </td>
                             </tr>
                         ))}
                     </tbody>
