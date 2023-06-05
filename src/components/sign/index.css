@@ -1,0 +1,44 @@
+.search {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px;
+}
+.search input {
+  font-size: 20px;
+  width: 800px;
+  height: 40px;
+  border: 1px solid #0047AB;
+  border-radius: 20px;
+  padding: 0 10px;
+}
+.search input:focus {
+  outline: none;
+  border: 1px solid #0047AB;
+  background-color: rgb(210, 223, 255);
+}
+.search button {
+  width: 200px;
+  border: 1px solid rgba(0, 71, 171, 0.7);
+  color: white;
+  background-color: rgba(0, 71, 171, 0.7);
+  border-radius: 50px;
+}
+
+.table table {
+  width: 1100px;
+  margin: 0 auto;
+  font-size: 20px;
+  border: 1px solid rgba(0, 71, 171, 0.3);
+  border-radius: 20px;
+  padding: 10px;
+  border-spacing: 10px;
+}
+.table table thead tr {
+  border-bottom: 1px solid rgba(0, 71, 171, 0.7);
+}
+.table table tbody tr td {
+  text-align: center;
+}
+
+/*# sourceMappingURL=index.css.map */
