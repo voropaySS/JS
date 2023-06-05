@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./index.css"
+import styles from "./sign.module.scss";
+import withLayout from "../../hocs/with-layout";
 
-export function SignApplication() {
+const SignApplication = () => {
 
     const testData = [
         {
@@ -51,8 +52,8 @@ export function SignApplication() {
             <Link to="/signing" activeStyle>
                 Подписать
             </Link>
-            <h1>Список заявок на подписание</h1>
-            <div className="search">
+            <h1 className={styles.title}>Список заявок на подписание</h1>
+            <div className={styles.search}>
                 <input
                     type="text"
                     placeholder="Введите название документа"
@@ -60,7 +61,7 @@ export function SignApplication() {
                     onChange={handleInputChange} />
                 <button onClick={handleSubmit}>Поиск</button>
             </div>
-            <div className="table">
+            <div className={styles.table}>
                 <table>
                     <thead>
                         <tr>
@@ -83,3 +84,5 @@ export function SignApplication() {
         </div>
     )
 }
+
+export default withLayout(SignApplication);

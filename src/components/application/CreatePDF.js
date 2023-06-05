@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { PDFViewer, PDFDownloadLink, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
-import './PDF.css'
+import styles from "./CreatePDF.module.scss";
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 
 export function Preview() {
@@ -40,22 +40,28 @@ export const CreatePDF = ({ onChange }, { profile }) => {
     const [type_request, setTypeRequest] = React.useState("type_request");
     const [type_template, setTypeTemplate] = React.useState("type_template");
     const [numberDoc, setNumberDoc] = React.useState("");
+    const [showPreview, setShowPreview] = useState(false);
 
     const onChangeName = (e) => {
         setName(e.target.value);
+        setShowPreview(false);
         console.log(name)
     }
     const onChangeCorp = (e) => {
         setCorp(e.target.value);
+        setShowPreview(false);
     }
     const onChangeDate = (e) => {
         setDate(e.target.value);
+        setShowPreview(false);
     }
     const onChangeTypeRequest = (e) => {
         setTypeRequest(e.target.value);
+        setShowPreview(false);
     }
     const onChangeTypeTemplate = (e) => {
         setTypeTemplate(e.target.value);
+        setShowPreview(false);
     }
     let array = []
     const [boolCheckTest, setBoolCheckTest] = useState(false)
@@ -68,6 +74,7 @@ export const CreatePDF = ({ onChange }, { profile }) => {
             date: date
         });
     const handlerClickSender = () => {
+        setShowPreview(true);
         setData_pdf(
             {name: name,
                 corp: corp ,
@@ -140,9 +147,10 @@ export const CreatePDF = ({ onChange }, { profile }) => {
     };
 
     return (
-        <div className='MainCLassPDF'>
-            <div className="container">
-                <ul className='input_form'>
+        <div className={styles.MainCLassPDF}>
+            <div className={styles.container}>
+                <div className={styles.header}>Создание заявки</div>
+                <ul className={styles.input_form}>
                     <li>
                         <label>Название</label>
                         <input
@@ -154,27 +162,27 @@ export const CreatePDF = ({ onChange }, { profile }) => {
                     </li>
                     <li>
                         <label>Тип заявки</label>
-                        <select name="name" className='listbox' size="1"
-                            onClick={onChangeTypeRequest}>
+                        <select name="name" className={styles.listbox} size="1"
+                            onChange={onChangeTypeRequest}>
                             {/* <option value="Type requests 1">Тип какой то 1</option>
                             <option value="Тип какой то 2">Тип какой то 2</option>
                             <option value="Тип какой то 3">Тип какой то 3</option> */}
                             <option value="Type requests 1">Type 1</option>
-                            <option value="Тип какой то 2">Type 2</option>
-                            <option value="Тип какой то 3">Type 3</option>
+                            <option value="Type requests 2">Type 2</option>
+                            <option value="Type requests 3">Type 3</option>
 
                         </select>
                     </li>
                     <li>
                         <label>Тип шаблона</label>
-                        <select name="name" className='listbox' size="1"
-                            onClick={onChangeTypeTemplate}>
+                        <select name="name" className={styles.listbox} size="1"
+                            onChange={onChangeTypeTemplate}>
                             {/* <option value="Type Template 1">Тип шаблона какой то 1</option>
                             <option value="Тип шаблона какой то 2">Тип шаблона какой то 2</option>
                             <option value="Тип шаблона какой то 3">Тип шаблона какой то 3</option> */}
                             <option value="Type Template 1">Template 1</option>
-                            <option value="Тип шаблона какой то 2">Template 2</option>
-                            <option value="Тип шаблона какой то 3">Template 3</option>
+                            <option value="Type Template 2">Template 2</option>
+                            <option value="Type Template 3">Template 3</option>
 
                         </select>
                     </li>
@@ -196,18 +204,16 @@ export const CreatePDF = ({ onChange }, { profile }) => {
                             value={corp}
                         />
                     </li>
-                    <li>
-                        <button onClick={handlerClickSender}>Предпросмотр</button>
-                    </li>
+                    <button onClick={handlerClickSender} className={styles.previewBtn}>Предпросмотр</button>
                 </ul>
             </div>
-            <div className="container">
-                {pdfData && (
+            <div>
+                {showPreview && pdfData && (
                     <object
                         data={`data:application/pdf;base64,${btoa(String.fromCharCode(...new Uint8Array(pdfData)))}`}
                         type="application/pdf"
                         width="500px"
-                        height="600px"
+                        height="400px"
                     >
                         <p>
                             Ваш браузер не поддерживает просмотр PDF. Вы можете <a href={`data:application/pdf;base64,${btoa(String.fromCharCode(...new Uint8Array(pdfData)))}`}>скачать PDF</a>.
