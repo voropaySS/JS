@@ -1,50 +1,52 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Entry from "../entry/entry";
-import NotFoundScreen from "../not-found-screen/not-found-screen";
-import SignIn from "../sign-in/sign-in";
-import Registration from "../registration/registration";
-import Main from "../main/main";
-import SignApplication from "../sign/sign";
-import Signing from "../signing/signing";
-import { ShowApplication } from "../show/show";
-import Creature from "../creature/creature";
+import React, { Suspense, lazy } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { APPRoute } from "../../const";
+import ProtectedRoute from "../protected-route/protected-route";
+
+const Layout = lazy(() => import("../layout/layout"));
+const Entry = lazy(() => import("../entry/entry"));
+const Registration = lazy(() => import("../registration/registration"));
+const SignIn = lazy(() => import("../sign-in/sign-in"));
+const Main = lazy(() => import("../main/main"));
+const SignApplication = lazy(() => import("../sign/sign"));
+const Signing = lazy(() => import("../signing/signing"));
+const ShowApplication = lazy(() => import("../show/show"));
+const Creature = lazy(() => import("../creature/creature"));
+const NotFoundScreen = lazy(() =>
+  import("../not-found-screen/not-found-screen")
+);
 
 const App = () => {
+  const isAuth = true;
   return (
     <BrowserRouter>
-      <Switch>
-        <Route path = {APPRoute.ENTRY} exact>
-          <Entry/>
-        </Route>
-        <Route path = {APPRoute.REGISTRATION} exact>
-          <Registration/>
-        </Route>
-        <Route path = {APPRoute.LOGIN} exact>
-          <SignIn/>
-        </Route>
-        <Route path = {APPRoute.MAIN} exact>
-          <Main/>
-        </Route>
-        <Route path = {APPRoute.SIGN} exact>
-          <SignApplication/>
-        </Route>
-        <Route path = {APPRoute.SIGNING} exact>
-          <Signing/>
-        </Route>
-        <Route path = {APPRoute.SHOW} exact>
-          <ShowApplication/>
-        </Route>
-        <Route path = {APPRoute.CREATURE} exact>
-          <Creature/>
-        </Route>
-        <Route>
-          <NotFoundScreen/>
-        </Route>
-      </Switch>
+      <Suspense>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path={APPRoute.ENTRY} element={<Entry />} />
+            <Route path={APPRoute.REGISTRATION} element={<Registration />} />
+            <Route path={APPRoute.LOGIN} element={<SignIn />} />
+            <Route element={<ProtectedRoute authUser={isAuth} />}>
+              <Route path={APPRoute.MAIN} element={<Main />} />
+            </Route>
+            <Route element={<ProtectedRoute authUser={isAuth} />}>
+              <Route path={APPRoute.SIGN} element={<SignApplication />} />
+            </Route>
+            <Route element={<ProtectedRoute authUser={isAuth} />}>
+              <Route path={APPRoute.SIGNING} element={<Signing />} />
+            </Route>
+            <Route element={<ProtectedRoute authUser={isAuth} />}>
+              <Route path={APPRoute.SHOW} element={<ShowApplication />} />
+            </Route>
+            <Route element={<ProtectedRoute authUser={isAuth} />}>
+              <Route path={APPRoute.CREATURE} element={<Creature />} />
+            </Route>
+          </Route>
+          <Route path={APPRoute.NOTFOUND} element={<NotFoundScreen />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
