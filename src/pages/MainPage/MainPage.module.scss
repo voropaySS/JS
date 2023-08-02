@@ -1,0 +1,23 @@
+@import '../../styles/vars.scss';
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+
+    .form {
+        color: $white;
+        display: flex;
+        gap: $gap*2;
+        padding-top: $gap*2;
+        align-items: center;
+
+        button {
+            background-color: $dark-blue;
+            padding: $gap $gap*3;
+            border-radius: 50px;
+        }
+    }
+
+}

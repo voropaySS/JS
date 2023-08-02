@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./signing.module.scss";
+import styles from "./SigningPage.module.scss";
 
-const Signing = () => {
+const SigningPage = () => {
   return (
     <div className={styles.form}>
       <h3>Подписание</h3>
@@ -21,4 +21,4 @@ const Signing = () => {
   );
 };
 
-export default Signing;
+export default SigningPage;

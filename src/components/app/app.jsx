@@ -7,9 +7,9 @@ const Layout = lazy(() => import("../layout/layout"));
 const Entry = lazy(() => import("../entry/entry"));
 const Registration = lazy(() => import("../registration/registration"));
 const SignIn = lazy(() => import("../sign-in/sign-in"));
-const Main = lazy(() => import("../main/main"));
-const SignApplication = lazy(() => import("../sign/sign"));
-const Signing = lazy(() => import("../signing/signing"));
+const MainPage = lazy(() => import("../../pages/MainPage/MainPage"));
+const ForSigningPage = lazy(() => import("../../pages/ForSigningPage/ForSigningPage"));
+const SigningPage = lazy(() => import("../../pages/SigningPage/SigningPage"));
 const ShowApplication = lazy(() => import("../show/show"));
 const Creature = lazy(() => import("../creature/creature"));
 const NotFoundScreen = lazy(() =>
@@ -27,13 +27,13 @@ const App = () => {
             <Route path={APPRoute.REGISTRATION} element={<Registration />} />
             <Route path={APPRoute.LOGIN} element={<SignIn />} />
             <Route element={<ProtectedRoute authUser={isAuth} />}>
-              <Route path={APPRoute.MAIN} element={<Main />} />
+              <Route path={APPRoute.MAIN} element={<MainPage />} />
             </Route>
             <Route element={<ProtectedRoute authUser={isAuth} />}>
-              <Route path={APPRoute.SIGN} element={<SignApplication />} />
+              <Route path={APPRoute.SIGN} element={<ForSigningPage />} />
             </Route>
             <Route element={<ProtectedRoute authUser={isAuth} />}>
-              <Route path={APPRoute.SIGNING} element={<Signing />} />
+              <Route path={APPRoute.SIGNING} element={<SigningPage />} />
             </Route>
             <Route element={<ProtectedRoute authUser={isAuth} />}>
               <Route path={APPRoute.SHOW} element={<ShowApplication />} />
