@@ -47,10 +47,6 @@ export function SignApplication() {
     return value.name.toLowerCase().includes(inputValue.toLowerCase());
   });
 
-  // const handleSubmit = (event) => {
-  //     setInputValue('');
-  // }
-
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
