@@ -1,9 +1,9 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { APPRoute } from "../../const";
+import { userStore } from "../../index";
 
-const ProtectedRoute = ({ authUser }) => {
-  //   const authUser = useSelector(getAuthUserId);
-  if (!authUser) {
+const ProtectedRoute = () => {
+  if (!userStore.getUser) {
     return <Navigate to={APPRoute.LOGIN} replace />;
   }
 

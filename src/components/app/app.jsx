@@ -22,7 +22,6 @@ const NotFoundScreen = lazy(() =>
 );
 
 const App = () => {
-  const isAuth = true;
   return (
     <BrowserRouter>
       <Suspense>
@@ -36,19 +35,19 @@ const App = () => {
             <Route path={APPRoute.LOGIN} element={<SignInPage />} />
           </Route>
           <Route element={<UserLayout />}>
-            <Route element={<ProtectedRoute authUser={isAuth} />}>
+            <Route element={<ProtectedRoute />}>
               <Route path={APPRoute.MAIN} element={<MainPage />} />
             </Route>
-            <Route element={<ProtectedRoute authUser={isAuth} />}>
+            <Route element={<ProtectedRoute />}>
               <Route path={APPRoute.SIGN} element={<ForSigningPage />} />
             </Route>
-            <Route element={<ProtectedRoute authUser={isAuth} />}>
+            <Route element={<ProtectedRoute />}>
               <Route path={APPRoute.SIGNING} element={<SigningPage />} />
             </Route>
-            <Route element={<ProtectedRoute authUser={isAuth} />}>
+            <Route element={<ProtectedRoute />}>
               <Route path={APPRoute.SHOW} element={<ShowApplication />} />
             </Route>
-            <Route element={<ProtectedRoute authUser={isAuth} />}>
+            <Route element={<ProtectedRoute />}>
               <Route path={APPRoute.CREATURE} element={<Creature />} />
             </Route>
           </Route>

@@ -1,5 +1,4 @@
 import { makeObservable, action, observable, computed } from "mobx";
-import { injectStores } from "@mobx-devtools/tools";
 
 class User {
   user = null;
@@ -42,7 +41,4 @@ class User {
   }
 }
 
-const userStore = new User();
-injectStores({ userStore });
-
-export default userStore;
+export default User;

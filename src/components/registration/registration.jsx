@@ -3,7 +3,7 @@ import styles from "./registration.module.scss";
 import { Select } from "antd";
 import { useNavigate } from "react-router-dom";
 import { APPRoute } from "../../const";
-import userStore from "../../stores/UserStore";
+import { userStore } from "../../index";
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -28,6 +28,7 @@ const Registration = () => {
     userStore.createUser(formData); //добавление польз в стор
     navigate(APPRoute.MAIN);
     console.log(formData);
+    localStorage.setItem("user", JSON.stringify(formData));
   };
 
   return (

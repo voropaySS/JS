@@ -6,11 +6,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { APPRoute } from "../../const";
 import { ReactComponent as AvatarIcon } from "../../assets/avatar.svg";
 import { observer } from "mobx-react-lite";
-import userStore from "../../stores/UserStore";
+import { userStore } from "../../index";
 
 const Header = observer(() => {
   const naigate = useNavigate();
   const LogoutClick = () => {
+    userStore.deleteUser();
+    localStorage.setItem("user", null);
     naigate(APPRoute.ENTRY);
   };
 
