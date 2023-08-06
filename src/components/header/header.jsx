@@ -5,8 +5,10 @@ import { Dropdown, Space } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { APPRoute } from "../../const";
 import { ReactComponent as AvatarIcon } from "../../assets/avatar.svg";
+import { observer } from "mobx-react-lite";
+import userStore from "../../stores/UserStore";
 
-const Header = () => {
+const Header = observer(() => {
   const naigate = useNavigate();
   const LogoutClick = () => {
     naigate(APPRoute.ENTRY);
@@ -45,13 +47,13 @@ const Header = () => {
           placement="bottomRight"
         >
           <Space>
-            Иван Иванович
+            {userStore.getUser?.name}
             <AvatarIcon width={"35px"} height={"35px"} />
           </Space>
         </Dropdown>
       </div>
     </header>
   );
-};
+});
 
 export default Header;

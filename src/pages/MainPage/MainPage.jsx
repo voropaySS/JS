@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styles from "./MainPage.module.scss";
 import Table from "../../components/Table/Table";
 import testData from "../ForSigningPage/mock_data";
@@ -14,20 +13,8 @@ const MainPage = () => {
 
   return (
     <div className={styles.main}>
-      <div className={styles.form}>
-        <Link to="/creature">
-          <button type="button">Создать заявку</button>
-        </Link>
-        <Link to="/sign">
-          <button type="button">Заявки на подписание</button>
-        </Link>
-      </div>
-
       <Search input={inputValue} setInput={setInputValue} />
-
-      <div className={styles.table}>
-        <Table data={filteredData} />
-      </div>
+      <Table data={filteredData} />
     </div >
   );
 };

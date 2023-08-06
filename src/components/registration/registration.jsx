@@ -3,6 +3,7 @@ import styles from "./registration.module.scss";
 import { Select } from "antd";
 import { useNavigate } from "react-router-dom";
 import { APPRoute } from "../../const";
+import userStore from "../../stores/UserStore";
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -24,6 +25,7 @@ const Registration = () => {
 
   const handleFormSubmit = (evt) => {
     evt.preventDefault();
+    userStore.createUser(formData); //добавление польз в стор
     navigate(APPRoute.MAIN);
     console.log(formData);
   };
