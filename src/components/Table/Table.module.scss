@@ -1,47 +1,45 @@
 .container {
+  width: 100%;
+  margin: 0 auto;
+
+  table {
     width: 100%;
-    margin: 0 auto;
-    max-height: 400px;
-    overflow: auto;
+    margin: 40px auto;
+    font-size: 20px;
+    border-collapse: separate;
+    border-spacing: 30px 10px;
 
-    table {
-        width: 100%;
-        margin: 40px auto;
+    thead {
+      color: #0047ab;
+
+      tr {
+        border-bottom: 1px solid rgba(0, 71, 171, 0.7);
+        color: #7290bd;
+        font-family: Ysabeau SC;
         font-size: 20px;
-        border-collapse: separate;
-        border-spacing: 30px 10px;
-
-        thead {
-            color: #0047AB;
-
-            tr {
-                border-bottom: 1px solid rgba(0, 71, 171, 0.7);
-                color: #7290BD;
-                font-family: Ysabeau SC;
-                font-size: 20px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: normal;
-            }
-        }
-
-        tbody {
-            tr {
-                .sign {
-                    cursor: pointer;
-                }
-
-                td {
-                    text-align: center;
-                    color: #E7DBF4;
-                    text-align: center;
-                    font-family: Ysabeau SC;
-                    font-size: 20px;
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: normal;
-                }
-            }
-        }
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
     }
+
+    tbody {
+      tr {
+        .sign {
+          cursor: pointer;
+        }
+
+        td {
+          text-align: center;
+          color: #e7dbf4;
+          text-align: center;
+          font-family: Ysabeau SC;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
+    }
+  }
 }
