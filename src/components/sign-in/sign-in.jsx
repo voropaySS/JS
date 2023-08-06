@@ -19,22 +19,24 @@ const SignIn = () => {
   return (
     <form className={styles.form} onSubmit={handleFormSubmit}>
       <div className={styles.header}>Авторизация</div>
-      <input
-        type="text"
-        name="login"
-        placeholder="Введите логин"
-        required
-        onChange={handleInputChange}
-        value={formData.login}
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="Введите пароль"
-        required
-        onChange={handleInputChange}
-        value={formData.password}
-      />
+      <div className={styles.inputContainer}>
+        <input
+          type="text"
+          name="login"
+          placeholder="Введите логин"
+          required
+          onChange={handleInputChange}
+          value={formData.login}
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Введите пароль"
+          required
+          onChange={handleInputChange}
+          value={formData.password}
+        />
+      </div>
       <button type="submit">Войти</button>
     </form>
   );

@@ -1,0 +1,15 @@
+@import "../../styles/vars.scss";
+
+.container {
+  background-image: url("../../assets/atomIcon.svg");
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-size: contain;
+}
+
+.text {
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}

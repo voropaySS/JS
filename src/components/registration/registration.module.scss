@@ -1,40 +1,68 @@
-@import '../../styles/vars.scss';
+@import "../../styles/vars.scss";
 
 .form {
-    background-color: $light-blue;
-    display: flex;
-    flex-direction: column;
-    gap: $gap*2;
-    padding: $gap*2 $gap*3;
-    align-items: center;
-    border-radius: 25px;
-    margin-top: 150px;
-    button {
-        background-color: $dark-blue;
-        padding: $gap $gap*3;
-        border-radius: 50px;
-        color: $white;
+  background-color: $black;
+  display: flex;
+  flex-direction: column;
+  gap: 69px;
+  padding: 48px 63px 61px;
+  align-items: center;
+  border-radius: 62px;
+  width: 581px;
+  font-weight: 300;
+  button {
+    padding: 12px 91px;
+    border-radius: 23px;
+    font-size: 24px;
+    font-weight: 300;
+    border: 3px solid $btnColor;
+    box-sizing: border-box;
+    &:hover {
+      background-color: $btnColor;
     }
-    input, select {
-        background-color: $white;
-        padding: calc($gap/2);
-        color: black;
-        width: 192px;
-    }
-    span {
-        margin-right: calc($gap/2);
-    }
+  }
+  input {
+    padding: 7px 11px;
+    border: 1px solid $btnColor;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 24px;
+  }
 }
 
-.form__item {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  margin-bottom: 16px;
 }
 
 .header {
-    color: $blue;
-    text-align: center;
-    display: block;
+  font-size: 30px;
+  line-height: 40px;
+}
+
+.select {
+  div {
+    font-family: "Ysabeau SC", sans-serif !important;
+    font-size: 20px !important;
+    background-color: $black !important;
+    color: $textColor !important;
+    border: 1px solid $btnColor !important;
+    span {
+      color: $textColor !important;
+    }
+  }
+  span {
+    color: $textColor !important;
+  }
+}
+
+.selectList {
+  font-family: "Ysabeau SC", sans-serif !important;
+  div {
+    font-size: 20px !important;
+  }
 }

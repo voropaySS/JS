@@ -1,0 +1,23 @@
+@import "../../styles/vars.scss";
+
+.background {
+  position: absolute;
+  top: -584px;
+  height: 100%;
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  position: inherit;
+}
+
+.page {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: $background;
+  font-family: "Ysabeau SC", sans-serif;
+  color: $textColor;
+}

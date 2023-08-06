@@ -1,0 +1,20 @@
+@import "../../styles/vars.scss";
+
+.background {
+  position: absolute;
+  left: 39%;
+  height: 100%;
+}
+
+.container {
+  position: inherit;
+}
+
+.main {
+  background-color: $background;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  font-family: "Ysabeau SC", sans-serif;
+  color: $textColor;
+}
