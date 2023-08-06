@@ -1,13 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import styles from './Table.module.scss'
+import styles from './Table.module.scss';
+import { useNavigate } from "react-router-dom";
+import { APPRoute } from "../../const";
+import newSign from '../../assets/newSign.svg';
+import signing from '../../assets/signing.svg';
+import blueSign from '../../assets/signBlue.svg';
+// import redSign from '../../assets/signRed.svg';
+// import greenSign from '../../assets/signGreen.svg';
 
 const Table = ({ data, sign }) => {
+    const navigate = useNavigate();
+
+    const openModal = () => {
+        console.log('open');
+        // открыть модальное окно в котром пдф документ
+    }
+
     return (
         <div className={styles.container}>
             <table>
                 <thead>
                     <tr>
+                        <th>{!sign &&
+                            <img src={newSign} alt="Signing" onClick={() => navigate(APPRoute.CREATURE)}/>
+                        }</th>
                         <th>Номер заявки</th>
                         <th>Имя отправителя</th>
                         <th>Название</th>
@@ -19,20 +35,23 @@ const Table = ({ data, sign }) => {
                 <tbody>
                     {data.map((row, index) => (
                         <tr key={index}>
-                            {Object.values(row).map((value, index) => (
-                                <td key={index}>{value}</td>
+                            <td className={styles.sign}>
+                                <img src={blueSign} alt="sign" onClick={openModal} />
+                            </td>
+                            {Object.values(row).map((value, innerIndex) => (
+                                <td key={innerIndex}>{value}</td>
                             ))}
-                            {sign &&
+                            {sign && (
                                 <td>
-                                    <Link to="/signing">Подписать</Link>
-                                </td>}
+                                    <img src={signing} alt="Signing" onClick={() => navigate(APPRoute.SIGNING)}/>
+                                </td>
+                            )}
                         </tr>
                     ))}
                 </tbody>
+
             </table>
         </div>
-
-
     )
 }
 

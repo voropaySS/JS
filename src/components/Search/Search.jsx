@@ -1,5 +1,6 @@
 import React from "react";
 import styles from './Search.module.scss';
+import searchIcon from '../../assets/search.svg'
 
 const Search = (props) => {
 
@@ -10,6 +11,7 @@ const Search = (props) => {
     return (
         <div>
             <div className={styles.search}>
+                <img src={searchIcon} alt="search"/>
                 <input
                     type="text"
                     placeholder="Введите название документа"
