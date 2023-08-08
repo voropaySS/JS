@@ -15,16 +15,17 @@ class User {
 
   fetchUser = async () => {
     try {
-      const response = await fetch("URL_TO_GET_USER");
+      const response = await fetch("/api/users/all");
 
       if (response.ok) {
         const data = await response.json();
         this.user = data;
+        console.log(data);
       } else {
         throw new Error(response.status);
       }
     } catch (error) {
-      console.error("Error fetching user:", error);
+      console.error("Ошибка получения пользователя:", error);
     }
   };
 
