@@ -1,0 +1,70 @@
+.form {
+    width: 900px;
+    height: 550px;
+    border-radius: 62px;
+    background: #131415;
+    box-shadow: 8px 8px 20px 0px rgba(0, 0, 0, 0.25);
+    margin: 40px auto 0 auto;
+    padding: 50px 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .block {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        color: #E7DBF4;
+        text-align: center;
+        font-family: Ysabeau SC;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        .icon {
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+        }
+    }
+
+    .title {
+        color: #7290BD;
+        text-align: center;
+        font-family: Ysabeau SC;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .status {
+        display: flex;
+        gap: 10px;
+        color: #E7DBF4;
+        font-family: Ysabeau SC;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+
+        .yes {
+            
+        }
+
+        .no {
+            color: #BD7272;
+        }
+    }
+
+    .comm {
+        width: 600px;
+        height: 120px;
+        border: 2px solid rgba(114, 144, 189, 0.50);
+        box-shadow: 0px 0px 40px 0px rgba(114, 144, 189, 0.40);
+        padding: 10px 15px;
+    }
+
+}

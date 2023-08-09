@@ -11,9 +11,9 @@ import blueSign from '../../assets/signBlue.svg';
 const Table = ({ data, sign }) => {
     const navigate = useNavigate();
 
-    const openModal = () => {
-        console.log('open');
-        // открыть модальное окно в котром пдф документ
+    const openSign = () => {
+        if (!sign)
+            navigate(APPRoute.SIGN)
     }
 
     return (
@@ -22,7 +22,7 @@ const Table = ({ data, sign }) => {
                 <thead>
                     <tr>
                         <th>{!sign &&
-                            <img src={newSign} alt="Signing" onClick={() => navigate(APPRoute.CREATURE)}/>
+                            <img src={newSign} alt="Signing" onClick={() => navigate(APPRoute.CREATURE)} />
                         }</th>
                         <th>Номер заявки</th>
                         <th>Имя отправителя</th>
@@ -36,14 +36,14 @@ const Table = ({ data, sign }) => {
                     {data.map((row, index) => (
                         <tr key={index}>
                             <td className={styles.sign}>
-                                <img src={blueSign} alt="sign" onClick={openModal} />
+                                <img src={blueSign} alt="sign" onClick={openSign} />
                             </td>
                             {Object.values(row).map((value, innerIndex) => (
                                 <td key={innerIndex}>{value}</td>
                             ))}
                             {sign && (
                                 <td>
-                                    <img src={signing} alt="Signing" onClick={() => navigate(APPRoute.SIGNING)}/>
+                                    <img src={signing} alt="Signing" onClick={() => navigate(APPRoute.SIGNING)} />
                                 </td>
                             )}
                         </tr>

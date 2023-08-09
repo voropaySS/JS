@@ -17,6 +17,7 @@ const ForSigningPage = lazy(() =>
 const SigningPage = lazy(() => import("../../pages/SigningPage/SigningPage"));
 const ShowApplication = lazy(() => import("../show/show"));
 const Creature = lazy(() => import("../creature/creature"));
+const SignPage = lazy(() => import('../../pages/SignPage/SignPage'))
 const NotFoundScreen = lazy(() =>
   import("../not-found-screen/not-found-screen")
 );
@@ -39,7 +40,7 @@ const App = () => {
               <Route path={APPRoute.MAIN} element={<MainPage />} />
             </Route>
             <Route element={<ProtectedRoute />}>
-              <Route path={APPRoute.SIGN} element={<ForSigningPage />} />
+              <Route path={APPRoute.FORSIGNING} element={<ForSigningPage />} />
             </Route>
             <Route element={<ProtectedRoute />}>
               <Route path={APPRoute.SIGNING} element={<SigningPage />} />
@@ -49,6 +50,9 @@ const App = () => {
             </Route>
             <Route element={<ProtectedRoute />}>
               <Route path={APPRoute.CREATURE} element={<Creature />} />
+            </Route>
+            <Route element={<ProtectedRoute />}>
+              <Route path={APPRoute.SIGN} element={<SignPage />} />
             </Route>
           </Route>
           <Route path={APPRoute.NOTFOUND} element={<NotFoundScreen />} />

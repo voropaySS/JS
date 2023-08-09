@@ -23,7 +23,7 @@ const Header = observer(() => {
     },
     {
       key: "2",
-      label: <Link to={APPRoute.SIGN}>Заявки на подписание</Link>,
+      label: <Link to={APPRoute.FORSIGNING}>Заявки на подписание</Link>,
     },
     {
       key: "3",

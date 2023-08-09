@@ -3,9 +3,10 @@ export const APPRoute = {
   REGISTRATION: "/registration",
   LOGIN: "/login",
   MAIN: "/main",
-  SIGN: "/sign",
+  FORSIGNING: "/forsigning",
   SIGNING: "/signing",
   SHOW: "/show",
   CREATURE: "/creature",
+  SIGN: "/sign",
   NOTFOUND: `*`,
 };
